@@ -1,0 +1,597 @@
+---
+---
+
+@charset 'UTF-8';
+
+:root {
+
+  /* Breakpoint variables */
+  --bp-small: 24.15;
+  --bp-medium: 43.75;
+  --bp-large: 60.25;
+  --bp-xlarge: 75;
+
+  /* Page counter */
+  --pageCount: 1;
+
+  /* initial values  */
+  --text-wght: 90;
+  --text-wdth: 100;
+  --text-opsz: 16;
+  
+  /* Paragraph variables */
+  --p-line-height-min: 1.15;
+  --p-line-height-max: 1.5;
+  --p-font-size-min: 1.0;
+  --p-font-size-max: 1.25;
+  --p-vf-wght: var(--text-wght);
+  --p-vf-wdth: var(--text-wdth);
+
+  /* H1 variables */
+  --h1-line-height-min: 1.05;
+  --h1-line-height-max: 1.1;
+  --h1-font-size-min: 2;
+  --h1-font-size-max: 4.5;
+  --h1-vf-wght-multiplier-s: 1.5;
+  --h1-vf-wght-multiplier-m: 1.625;
+  --h1-vf-wght-multiplier-l: 1.75;
+
+  /* H2 variables */
+  --h2-line-height-min: 1.15;
+  --h2-line-height-max: 1.25;
+  --h2-font-size-min: 1.75;
+  --h2-font-size-max: 2.5;
+  --h2-vf-wght-multiplier-s: 1.25;
+  --h2-vf-wght-multiplier-m: 1.5;
+  --h2-vf-wght-multiplier-l: 1.75;
+
+  /* H3 variables */
+  --h3-line-height-min: 1.15;
+  --h3-line-height-max: 1.25;
+  --h3-font-size-min: 1.75;
+  --h3-font-size-max: 2.5;
+  --h3-vf-wght-multiplier-s: .5;
+  --h3-vf-wght-multiplier-m: .5;
+  --h3-vf-wght-multiplier-l: .5;
+
+  /* Dropcap variables */
+  --dc-line-height-min: .9;
+  --dc-line-height-max: .95;
+  --dc-font-size-min: 2.7;
+  --dc-font-size-max: 5.25;
+
+  /* Blockquote variables */
+  --bq-line-height-min: 1.1;
+  --bq-line-height-max: 1.1;
+  --bq-font-size-min: 2.7;
+  --bq-font-size-max: 5;
+}
+
+.italic,
+i,
+em {
+
+}
+
+b,
+strong {
+  --text-wght: 150;
+}
+
+.clear {
+  clear: both;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  background-color: #fbfbf6;
+  color: #3c3d31;
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body, 
+div,
+p, 
+th, 
+td, 
+ul, 
+li, 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+figcaption,
+cite,
+i,
+em,
+b,
+strong,
+button,
+p:first-line,
+p:first-letter {
+	font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
+	font-weight: normal;
+  font-style: normal;
+  font-variation-settings: 
+    'wght' var(--text-wght),
+    'wdth' var(--text-wdth),
+    'opsz' var(--text-opsz);
+}
+
+p {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 38rem;
+	transition: all linear 0.2s;
+  hyphens: auto;
+  hanging-punctuation: first;
+}
+
+/* Variations and variables */
+p {
+  --text-wdth: calc( var(--p-vf-wdth) * .9 );
+  font-size: calc( var(--p-font-size-min) * 1rem );
+  line-height: var(--p-line-height-min);
+  @media screen and (min-width: 24.15em) {
+    line-height: calc(( var(--p-line-height-min) * 1em ) + ( var(--p-line-height-max) - var(--p-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-large) - var(--bp-small) )));
+  }
+  @media (min-width: 60.25em) {
+    --text-wdth: calc( var(--p-vf-wdth) * 1 );
+    font-size: calc(( var(--p-font-size-min) * 1em ) + ( var(--p-font-size-max) - var(--p-font-size-min) ) * ((100vw - ( var(--bp-large) * 1em )) / ( var(--bp-xlarge) - var(--bp-large) )));
+    line-height: var(--p-line-height-max);
+  }
+  @media (min-width: 75em) {
+    --text-opsz: calc( ( var(--p-font-size-max) * 16 ) );
+    font-size: calc( var(--p-font-size-max) * 1em );
+    max-width: 42rem;
+  }
+}
+
+
+/* Generic header styles */
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
+  font-weight: normal;
+	transition: all linear 0.2s; 
+	--text-wght: calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-s) );	
+}
+
+h1 {
+  /* Set --text-wght value multiplier */
+	--text-wght: calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-s) );	
+  --text-wdth: calc( var(--p-vf-wdth) * .85 );
+  --text-opsz: calc( ( var(--h1-font-size-min) * 16 ) );
+
+	font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
+  font-size: calc( var(--h1-font-size-min) * 1em );
+  line-height: var(--h1-line-height-min);
+  margin: 1rem auto;
+  //max-width: 50rem;
+  @media screen and (min-width: 24.15em) {
+    line-height: calc(( var(--h1-line-height-min) * 1em ) + ( var(--h1-line-height-max) - var(--h1-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    font-size: calc(( var(--h1-font-size-min) * 1em ) + ( var(--h1-font-size-max) - var(--h1-font-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+  }
+  @media screen and (min-width: 43.75em) {
+	  --text-wght: calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-m) );	
+    --text-wdth: calc( var(--p-vf-wdth) * 1.05 );
+    --text-opsz: calc( ( ( var(--h1-font-size-min) + ( ( var(--h1-font-size-max) - var(--h1-font-size-min) ) / 2 ) ) * 16 ) );
+    //max-width: 60rem;
+  }
+  @media screen and (min-width: 60.25em) {
+	  --text-wght: calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-l) );	
+    line-height: var(--h1-line-height-max);
+    //max-width: 70rem;
+  }
+  @media (min-width: 75em) {
+    --text-opsz: calc( ( var(--h1-font-size-max) * 16 ) );
+    font-size: calc( var(--h1-font-size-max) * 1em );
+    line-height: var(--h1-line-height-max);
+    //max-width: 75rem;
+  }
+}
+
+
+
+
+
+h2 {
+  /* Set --text-wght value multiplier */
+	--text-wght: calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-s) );
+  --text-opsz: calc( ( var(--h2-font-size-min) * 16 ) );
+
+	font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
+  font-size: calc( var(--h2-font-size-min) * 1em );
+  line-height: var(--h2-line-height-min);
+  margin: 1rem auto .5rem auto;
+  max-width: 38rem;
+  @media screen and (min-width: 24.15em) {
+    line-height: calc(( var(--h2-line-height-min) * 1em ) + ( var(--h2-line-height-max) - var(--h2-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    font-size: calc(( var(--h2-font-size-min) * 1em ) + ( var(--h2-font-size-max) - var(--h2-font-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+  }
+  @media screen and (min-width: 43.75em) {
+  	--text-wght: calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-m) );	
+    --text-opsz: calc( ( ( var(--h2-font-size-min) + ( ( var(--h2-font-size-max) - var(--h2-font-size-min) ) / 2 ) ) * 16 ) );
+
+    max-width: 38.5rem;
+  }
+  @media screen and (min-width: 60.25em) {
+    max-width: 38.5rem;
+  }
+  @media (min-width: 75em) {
+  	--text-wght: calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-l) );	
+    --text-opsz: calc( ( var(--h2-font-size-max) * 16 ) );
+
+    font-size: calc( var(--h2-font-size-max) * 1em );
+    line-height: var(--h2-line-height-max);
+    max-width: 42rem;
+  }
+}
+
+h3 {
+  /* Set --text-wght value multiplier */
+	--text-wght: calc( var(--p-vf-wght) * var(--h3-vf-wght-multiplier-s) );
+  --text-opsz: calc( ( var(--h3-font-size-min) * 16 ) );
+
+	color: #444466;
+	font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
+  font-size: calc( var(--h2-font-size-min) * 1em );
+  line-height: var(--h2-line-height-min);
+  margin: 1rem auto .5rem auto;
+  max-width: 38rem;
+  text-align: center;
+  @media screen and (min-width: 24.15em) {
+    line-height: calc(( var(--h3-line-height-min) * 1em ) + ( var(--h3-line-height-max) - var(--h3-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    font-size: calc(( var(--h3-font-size-min) * 1em ) + ( var(--h3-font-size-max) - var(--h3-font-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+  }
+  @media screen and (min-width: 43.75em) {
+  	--text-wght: calc( var(--p-vf-wght) * var(--h3-vf-wght-multiplier-m) );	
+
+    max-width: 38.5rem;
+  }
+  @media screen and (min-width: 60.25em) {
+    max-width: 38.5rem;
+  }
+  @media (min-width: 75em) {
+  	--text-wght: calc( var(--p-vf-wght) * var(--h3-vf-wght-multiplier-l) );	
+    --text-opsz: calc( ( var(--h3-font-size-max) * 16 ) );
+
+    font-size: calc( var(--h3-font-size-max) * 1em );
+    line-height: var(--h3-line-height-max);
+    max-width: none;
+  }
+}
+
+a {
+  &:link {
+    color: #555577;
+    text-decoration: underline;
+  }
+  &:visited {
+    color: #555577;
+    text-decoration: underline;
+  }
+  &:hover {
+    color: #bb4444;
+    
+  }
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Layout */
+
+/* Undo some of the Layout width bits */
+.section-content {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+main {
+  overflow: hidden;
+}
+
+.section-content.main {
+	scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+/* Pagination */
+.article-detail {
+  columns: 95vw auto;
+  column-gap: 0;
+  height: 90vh;
+  padding-top: 3em;
+  position: relative;
+  widows: 2;
+  orphans: 2;
+
+  > header {
+    margin: -3em 0 0 0;
+    padding-top: 1rem;
+    h1 {
+      background-color: #2f2f5e;
+      color: #ffffff;
+      line-height: 3rem;
+      margin: 0;
+      padding: 0 .5rem;
+      @media only screen and (min-width: 24.15em) {
+        line-height: 3rem;
+      }
+      @media only screen and (min-width: 34.15em) {
+        line-height: 5rem;
+      }
+      @media only screen and (min-width: 43.75em) {
+        line-height: 7rem;
+      }
+        }
+    h2 {
+      
+    }
+    h3 {
+      
+    }
+    .chapter-icon {
+      float: right;
+      height: 5em;
+      margin: -1rem .5rem 0 0;
+      padding: 0;
+      img {
+        max-height: 100%;
+        width: auto;
+      }
+      @media only screen and (min-width: 24.15em) {
+        height: 5rem
+      }
+      @media only screen and (min-width: 34.15em) {
+        height: 7rem
+      }
+      @media only screen and (min-width: 43.75em) {
+        height: 9rem
+      }
+    }
+    @media only screen and (min-width: 24.15em) {
+    }
+  	@media only screen and (min-width: 43.75em) {
+  	  margin-left: 0;
+  	  margin-right: 0;
+  	}
+  }
+
+  p {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+figure {
+  max-width: 50%;
+  float: right;
+}
+
+.pager-wrapper {
+  display: flex;
+  width: calc( 100vw * var(--pageCount) );
+  &--page {
+    background-color: transparent;
+    border-right: solid 1px black;
+    float: left;
+    height: 10px;
+    width: 100vw;
+    scroll-snap-align: start;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+/* Footer */
+footer {
+  bottom: 0;
+  left: 0;
+  padding: .5em 1em;
+  position: absolute;
+  width: 100%;
+}
+
+
+/* Component styles */
+.footer-contact {
+  font-size: .75em;
+}
+
+.scroll-buttons {
+  float: right;
+}
+
+@supports (font-variation-settings: normal) {
+  .no-support-message {
+    display: none;
+    position: absolute;
+    text-indent: -999em;
+    visibility: hidden;
+  }
+}
+
+.no-support-message {
+  background-color: rgba(#1155aa,.25);
+  display: grid;
+  margin: 0;
+  padding: 1.5em;
+  @media screen and (min-width: 43.75em) {
+	  float: none;
+    width: 50%;
+  }
+  h3 {
+    margin-top: 0;
+  }
+  p {
+    font-size: .925em;
+    margin-top: 0;
+  }
+  ul {
+    font-size: .925em;
+    margin-top: 0;
+  }
+}
+
+/* First-line styles */
+.article-detail.initial > p:first-of-type:first-line {
+  /* Set --text-x value */
+	--text-wght: calc( var(--p-vf-wght) * 1.25 );	
+
+	font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
+	@media screen and (min-width: 43.75em) { 
+	  --text-wght: calc( var(--p-vf-wght) * 1.25 );	
+
+    }
+}
+
+/* Initial Cap styles */
+.article-detail.initial > p:first-of-type:first-letter {
+	--text-wght: calc( var(--p-vf-wght) * 1.75 );	
+
+	color: #444466;
+	float: left; 
+	padding-right: 0.05em; 
+	font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
+	font-size:  calc( var(--dc-font-size-min) * 1em ); 
+  line-height: var(--dc-line-height-min);
+	margin-bottom: -.1em; 
+	margin-top: -.05em;
+  @media screen and (min-width: 24.15em) {
+    font-size: calc(( var(--dc-font-size-min) * 1em ) + ( var(--dc-font-size-max) - var(--dc-font-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    line-height: calc(( var(--dc-line-height-min) * 1em ) + ( var(--dc-line-height-max) - var(--dc-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-large) - var(--bp-small) )));
+  }
+  @media screen and (min-width: 43.75em) {
+	  --text-wght: calc( var(--p-vf-wght) * 1.95 );	
+  }
+  @media (min-width: 60.25em) {
+  	--text-wght: calc( var(--p-vf-wght) * 2.15 );	
+
+    font-size: calc( var(--dc-font-size-max) * 1em );
+    line-height: var(--dc-line-height-max);
+  }
+}
+
+/* Content end styles */
+.content-area > p:last-child:after {
+  color: #777;
+	content: "\2766";
+	display: block;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 5em;
+	font-style: italic;
+	font-weight: 300;
+	line-height: .75;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+	text-align: center;
+}
+
+blockquote {
+  float: right;
+  line-height: var(--bq-line-height-min);
+  margin: .5rem 5% 1rem .5rem;
+  max-width: 45%;
+	transition: all linear 0.2s; 
+	&.right {
+  	float: right;
+  	margin-left: .5rem;
+  	margin-right: 5%;
+	}	
+	&.left {
+  	float: left;
+  	margin-left: 5%;
+  	margin-right: .5rem;
+	}	
+	p {
+    /* Set --text-x value */
+  	--text-wght: calc( var(--p-vf-wght) * .65 );	
+    font-size: 6.5vw;
+    margin: 0 0 .25em 0;
+    position: relative;
+    &:first-letter {
+      
+    }
+    &:first-line {
+      --text-wght: calc( var(--p-vf-wght) * .65 );
+    }
+	}
+	cite {
+  	display: block;
+    font-size: 3.5vw;
+    text-align: right;
+    &:before {
+      content: "—";
+    }
+	}
+  @media screen and (min-width: 24.15em) {
+    margin: .5rem 5% .5rem .5rem;
+    max-width: 45%;
+  	&.right {
+    	margin-left: .5rem;
+    	margin-right: 0;
+  	}	
+  	&.left {
+    	margin-left: 0;
+    	margin-right: .5rem;
+  	}	
+  	p {
+    	--text-wght: calc( var(--p-vf-wght) * .8 );
+      font-size: 5.5vw;
+      line-height: calc(( var(--bq-line-height-min) * 1em ) + ( var(--bq-line-height-max) - var(--bq-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-large) - var(--bp-small) )));
+      &:first-line {
+        --text-wght: calc( var(--p-vf-wght) * .8 );
+      }
+      &:first-letter {
+        
+      }
+  	}
+  	cite {
+      font-size: 3vw;
+  	}
+  }
+  @media (min-width: 60.25em) {
+    margin: 1rem 12vw 2rem 2rem;
+    max-width: 29.5%;
+  	&.right {
+    	margin-left: 3.5%;
+    	margin-right: 12vw;
+  	}	
+  	&.left {
+    	margin-left: 17%;
+    	margin-right: 3.5%;
+  	}	
+  	p {
+    	--text-wght: calc( var(--p-vf-wght) * .7 );
+      font-size: 4vw;
+      line-height: var(--bq-line-height-max);
+      &:first-line {
+        --text-wght: calc( var(--p-vf-wght) * .7 );
+      }
+  	}
+  	cite {
+      font-size: 2.5vw;
+  	}
+  }
+}
+
