@@ -19,4 +19,18 @@ layout: home
   <li><a href="chapters/ch07.html">Chapter 7</a></li>
   <li><a href="chapters/ch08.html">Chapter 8</a></li>
   <li><a href="chapters/ch09.html">Chapter 9</a></li>
+  <li><a href="chapters/ch10.html">Chapter 10</a></li>
+  <li><a href="chapters/ch11.html">Chapter 11</a></li>
+  <li><a href="chapters/ch12.html">Chapter 12</a></li>
+  <li><a href="chapters/ch13.html">Chapter 13</a></li>
+  <li><a href="chapters/ch14.html">Chapter 14</a></li>
+  <li><a href="chapters/ch15.html">Chapter 15</a></li>
+  <li><a href="chapters/ch16.html">Chapter 16</a></li>
+  <li><a href="chapters/ch17.html">Chapter 17</a></li>
+  <li><a href="chapters/ch18.html">Chapter 18</a></li>
+  <li><a href="chapters/ch19.html">Chapter 19</a></li>
+  <li><a href="chapters/ch20.html">Chapter 20</a></li>
+  <li><a href="chapters/ch21.html">Chapter 21</a></li>
+  <li><a href="chapters/epilogue.html">Epilogue</a></li>
+  <li><a href="chapters/acknowledgements.html">Acknowledgements</a></li>
 </ul>
