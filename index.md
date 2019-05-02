@@ -4,6 +4,9 @@
 
 layout: home
 ---
+<h1>Letters from Jail</h1>
+<h2>Text by Ted White</h2>
+<h3>Artwork by Dan Steffan</h3>
 <h2>Table of Contents</h2>
 <ul>
   <li><a href="chapters/prologue.html">Prologue</a></li>
